@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
       constrainWidth:false});
 });
 
-
 function myFunction(name) {
   // show dropdown elements / hide other elements
   document.getElementById(name).classList.toggle("show");
