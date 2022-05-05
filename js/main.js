@@ -16,14 +16,22 @@ function filterFunction(id) {
   filter = input.value.toUpperCase();
   items = document.getElementsByClassName(id+"-ch");
 
-  selected_grades = getSelected('grades');
-  cmd = 'select student_name from details where ' + get_command('grades', selected_grades);
-  names = queryDBSet(cmd);
+  if (id == 'names') {
+    selected_grades = getSelected('grades');
+    cmd = 'select student_name from details where ' + get_command('grades', selected_grades);
+    selected = queryDBSet(cmd);
+  }
+
+  else if (id == 'grades') {
+    selected_names = getSelected('names');
+    cmd = 'select grade from details where ' + get_command('names', selected_names);
+    selected = queryDBSet(cmd);    
+  }
 
   items_displayed = [];
   for (let item of items) {
     txt = (item.getElementsByTagName('input')[0]).value;  
-    if (names.indexOf(txt) != -1) {
+    if (selected.indexOf(txt) != -1) {
       items_displayed.push(item);//console.log(item);
     }
   }
@@ -188,7 +196,6 @@ function displyGrades() {
   
   cmd = 'select grade from details where ' + get_command('names', visible_names);
   grades = queryDBSet(cmd);
-  //console.log(selected_grades, cmd, names);
   for (let x of document.getElementsByClassName('grades-ch')) {
     input = x.getElementsByTagName('input')[0];
     if (grades.indexOf(input.value) != -1 ) {
@@ -197,7 +204,7 @@ function displyGrades() {
     }
     else {
       x.style.display = 'none';
-      input.checked = true;
+      input.checked = false;
     }
   }
 }
@@ -229,16 +236,22 @@ function labelClick(id, value) {
 
 function check_all(id){
   if (id == 'names') {
-    items = queryDBSet('select student_name from details');
-
+    selected_grades = getSelected('grades');
+    //console.log(selected_grades);
+    cmd = 'select student_name from details where ' + get_command('grades', selected_grades);
+    selected = queryDBSet(cmd);
+    //console.log(selected);
   }
   
   else if (id == 'grades') {
-    items = queryDBSet('select grade from details');
-    
+    selected_names = getSelected('names');
+    //console.log(selected_names);
+    cmd = 'select grade from details where ' + get_command('names', selected_names);
+    selected = queryDBSet(cmd);
+    //console.log(selected);
   }
 
-  updateDropdown(id, items);
+  updateDropdown(id, selected);
   applyFilter(id);
 }
 
