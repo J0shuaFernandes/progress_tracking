@@ -253,6 +253,14 @@ function check_all(id){
 
   updateDropdown(id, selected);
   applyFilter(id);
+  
+  // if user hits select all display both all grades
+  if (id == 'names') {
+    grades = document.getElementsByClassName("grades-ch");
+    for (let x of grades) {
+      x.style.display = "block";
+    }
+  }
 }
 
 function resetAll() {
