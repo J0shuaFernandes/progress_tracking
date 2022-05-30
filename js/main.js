@@ -254,7 +254,7 @@ function check_all(id){
   updateDropdown(id, selected);
   applyFilter(id);
   
-  // if user hits select all display both all grades
+  // if user hits select all display all grades
   if (id == 'names') {
     grades = document.getElementsByClassName("grades-ch");
     for (let x of grades) {
@@ -287,6 +287,7 @@ fetch('https://ira8oas9wj.execute-api.ap-south-1.amazonaws.com/alpha/report')
   let details = [];
   alasql('create table details(grade, date, grade_wcpm, student_name, student_wcpm)');
   grades = Object.keys(data.wcpm_details.grades);
+  console.log(grades);
   for (let grade of grades) {
     dates = Object.keys(data.wcpm_details.grades[grade].date);
     for (let date of dates) {

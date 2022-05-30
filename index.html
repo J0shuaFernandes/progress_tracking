@@ -1,60 +1,15 @@
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Progress Tracking</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-	<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-	<script src='https://cdn.plot.ly/plotly-2.11.1.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/alasql@1.7.3/dist/alasql.min.js"></script>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-
-<div class="navbar-fixed">
-	<nav style="background-color:#003F72;">
-		<div class="nav-wrapper container"> 
-			<a class="brand-logo" style="padding-left:10px;"><h5 class="img-responsive">Progress Tracking</h5></a>
-
-			<ul class="right" style="padding-right: 10px;">
-				<li>
-					<a class='dropdown-trigger' id='grades_trigger' href='#' data-target='grades'>Grade</a>
-					<ul id='grades' class="dropdown-content">
-						<li><input type="text" placeholder="Search.." id="grades-input" onkeyup="filterFunction('grades')"></li>
-						<li><button class="btn-small" onclick="check_all('grades')">Select All</button></li>
-					</ul>
-				</li>	
-
-				<li>
-					<a class='dropdown-trigger' id='names_trigger' href='#' data-target='names'>Name</a>
-					<ul id='names' class="dropdown-content">
-						<li><input type="text" placeholder="Search.." id="names-input" onkeyup="filterFunction('names')"></li>
-						<li><button class="btn-small" onclick="check_all('names')">Select All</button></li>
-					</ul>
-				</li>
-				<!-- <li><a onclick="resetAll();"><i class="material-icons">refresh</i></a></li> -->
-			</ul>
-
-		</div>
-	</nav>
-</div>
-
-<center>
-<div id="myPlot" style="width:100%;max-width:800px"></div>
-</center>
-<!-- <div class="container" style="max-width:1500px; min-height:100%" >
-</div> --><!-- plotly.js -->
-
-<!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> 
-<div id="myChart" style="max-width:700px; height:400px"></div> -->
-
-
-<script type="text/javascript" src="js/main.js"></script>
-</body>
+  <meta charset="utf-8">
+  <title>iitb-wpp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head>
+<body class="mat-typography">
+  <app-root></app-root>
+<script src="runtime.js" defer></script><script src="polyfills.js" defer></script><script src="vendor.js" defer></script><script src="main.js" defer></script></body>
 </html>
